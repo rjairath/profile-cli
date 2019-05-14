@@ -2,6 +2,7 @@
 
 const AboutMe = require("./commands/AboutMe");
 const ContactMe = require("./commands/ContactMe");
+const TechStack = require("./commands/TechStack");
 const inquirer = require("inquirer");
 
 const Index = () => {
@@ -12,7 +13,7 @@ const Index = () => {
 	inquirer.prompt([
 		{
 			type: "list",
-			choices: ['aboutme', 'contactme'],
+			choices: ['aboutme', 'contactme', 'techstack'],
 			name: "answer"	
 		}
 	]).then((response) => {
@@ -23,6 +24,9 @@ const Index = () => {
 		}
 		if(response.answer == "contactme"){
 			ContactMe();
+		}
+		if(response.answer == "techstack"){
+			TechStack();
 		}
 	})
 };
